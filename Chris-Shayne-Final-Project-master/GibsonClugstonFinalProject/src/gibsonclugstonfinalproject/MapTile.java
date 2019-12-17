@@ -5,13 +5,13 @@ package gibsonclugstonfinalproject;
 
 
 public class MapTile extends MapUnit{
-    protected Human unitOccupying;
+    protected Tribesman unitOccupying;
     
     public MapTile(){
         unitOccupying = null;
     }
     
-    public MapTile(Human occupier){
+    public MapTile(Tribesman occupier){
         unitOccupying = occupier;
     }
     
@@ -25,5 +25,16 @@ public class MapTile extends MapUnit{
         return isOccupied;
         
     }
+    
+    public void setOccupier(Tribesman occupier){
+        unitOccupying = occupier;
+        
+    }
+    
+    public Tribesman getOccupier(){
+        return unitOccupying;
+        
+    }
+    
     
 }

@@ -13,7 +13,7 @@ abstract public class MapUnit implements MapUnitInterface{
 
     }
     
-    public MapUnit(int xPos, int yPos, int HP, int ATK, int DEF, int range) {
+    public MapUnit(int xPos, int yPos) {
         this.xPos = xPos;
         this.yPos = yPos;
 

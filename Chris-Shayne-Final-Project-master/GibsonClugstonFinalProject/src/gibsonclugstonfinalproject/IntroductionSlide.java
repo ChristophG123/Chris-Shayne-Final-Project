@@ -10,12 +10,15 @@ package gibsonclugstonfinalproject;
  * @author chgib6148
  */
 public class IntroductionSlide extends javax.swing.JFrame {
-    private MainMap battlefield;
+    
     private Credits credit;
     private Controls control;
+    private MapScreen screen; 
+    
     
     public IntroductionSlide() {
         initComponents();
+        screen = new MapScreen();
     }
 
     /**
@@ -108,10 +111,7 @@ public class IntroductionSlide extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewGameActionPerformed
-        if(battlefield == null){
-            battlefield = new MainMap(this);
-        }
-        battlefield.setVisible(true);
+        screen.run();
         this.setVisible(false);
         
     }//GEN-LAST:event_btnNewGameActionPerformed

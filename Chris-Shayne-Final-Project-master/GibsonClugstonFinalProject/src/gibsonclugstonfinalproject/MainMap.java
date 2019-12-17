@@ -5,6 +5,9 @@
  */
 package gibsonclugstonfinalproject;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
 /**
  *
  * @author chgib6148
@@ -12,9 +15,54 @@ package gibsonclugstonfinalproject;
 public class MainMap extends javax.swing.JFrame {
     IntroductionSlide mainMenu;
     
+   
+        
+     
+    
+    
     public MainMap(IntroductionSlide m) {
         initComponents();
         mainMenu = m;
+    }
+    
+    public void keyListen(){
+           this.addKeyListener(new KeyListener(){
+           int upCount = 0;
+           int downCount = 0;
+           int leftCount = 0;
+           int rightCount = 0;
+            
+            
+            @Override
+            public void keyTyped(KeyEvent e) {
+               
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+               int keyCode = e.getKeyCode();
+               switch(keyCode){
+                   case KeyEvent.VK_W:
+                   up.setText("Up: " + upCount++);
+                   break;
+                   case KeyEvent.VK_S:
+                   down.setText("Down: " + downCount++);
+                   break;
+                   case KeyEvent.VK_D:
+                   right.setText("Right: " + rightCount++);
+                   break;
+                   case KeyEvent.VK_A:
+                   left.setText("Left: " + leftCount++);
+                   break;
+               }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+               
+            }
+            
+        }) ;
     }
 
     Tribesman redGrunt1 = new Tribesman(10, 1, 1, 1, 1, "Grunt", "Moron");
@@ -29,8 +77,8 @@ public class MainMap extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         btnExit = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -41,37 +89,41 @@ public class MainMap extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gibsonclugstonfinalproject/coordinate grid.gif"))); // NOI18N
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(1239, Short.MAX_VALUE)
+                .addComponent(btnExit)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(816, Short.MAX_VALUE)
+                .addComponent(btnExit)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(1239, Short.MAX_VALUE)
-                .addComponent(btnExit)
-                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(102, 102, 102)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 389, Short.MAX_VALUE)
-                .addComponent(btnExit)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        mainMenu.setVisible(true);
-        this.setVisible(false);
+        
         
     }//GEN-LAST:event_btnExitActionPerformed
 
@@ -80,6 +132,6 @@ public class MainMap extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExit;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
